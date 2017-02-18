@@ -1,10 +1,9 @@
-# electron-react-boilerplate
+# Breakout-tomato(a healthy tomato timer)
 
 [![Build Status][travis-image]][travis-url]
 [![Appveyor Build Status][appveyor-image]][appveyor-url]
 [![Dependency Status][david_img]][david_site]
 [![NPM version][npm-image]][npm-url]
-[![Join the chat at https://gitter.im/electron-react-boilerplate/Lobby](https://badges.gitter.im/electron-react-boilerplate/Lobby.svg)](https://gitter.im/electron-react-boilerplate/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ![](./erb-logo.png)
 
@@ -12,29 +11,6 @@
 
 [Electron](http://electron.atom.io/) application boilerplate based on [React](https://facebook.github.io/react/), [Redux](https://github.com/reactjs/redux), [React Router](https://github.com/reactjs/react-router), [Webpack](http://webpack.github.io/docs/), [React Transform HMR](https://github.com/gaearon/react-transform-hmr) for rapid application development
 
-## Screenshot
-
-![Electron Boilerplate Demo](https://cloud.githubusercontent.com/assets/3382565/10557547/b1f07a4e-74e3-11e5-8d27-79ab6947d429.gif)
-
-## Install
-
-* **Note: requires a node version >= 6 and an npm version >= 3.**
-* **If you have installation or compilation issues with this project, please see [our debugging guide](https://github.com/chentsulin/electron-react-boilerplate/issues/400)**
-
-First, clone the repo via git:
-
-```bash
-git clone https://github.com/chentsulin/electron-react-boilerplate.git your-project-name
-```
-
-And then install dependencies.
-**ProTip**: Install with [yarn](https://github.com/yarnpkg/yarn) for faster and safer installation
-
-```bash
-$ cd your-project-name && npm install
-```
-
-:bulb: *In order to remove boilerplate sample code, simply run `npm run cleanup`. After this is run, the initial sample boilerplate code will be removed in order for a clean project for starting custom dev*
 
 ## Run
 
@@ -56,20 +32,6 @@ $ npm run dev
 ```bash
 apm install editorconfig es6-javascript atom-ternjs javascript-snippets linter linter-eslint language-babel autocomplete-modules file-icons
 ```
-
-**Sublime**
-* [Editorconfig Integration](https://github.com/sindresorhus/editorconfig-sublime#readme)
-* [Linting](https://github.com/SublimeLinter/SublimeLinter3)
-* [ESLint Integration](https://github.com/roadhump/SublimeLinter-eslint)
-* [Syntax Highlighting](https://github.com/babel/babel-sublime)
-* [Autocompletion](https://github.com/ternjs/tern_for_sublime)
-* [Node Snippets](https://packagecontrol.io/packages/JavaScript%20%26%20NodeJS%20Snippets)
-* [ES6 Snippets](https://packagecontrol.io/packages/ES6-Toolkit)
-
-**Others**
-* [Editorconfig](http://editorconfig.org/#download)
-* [ESLint](http://eslint.org/docs/user-guide/integrations#editors)
-* Babel Syntax Plugin
 
 ## DevTools
 
@@ -100,11 +62,9 @@ $ UPGRADE_EXTENSIONS=1 npm run dev
 $ set UPGRADE_EXTENSIONS=1 && npm run dev
 ```
 
-
-
 ## CSS Modules
 
-This boilerplate out of the box is configured to use [css-modules](https://github.com/css-modules/css-modules).
+This project is configured to use [css-modules](https://github.com/css-modules/css-modules).
 
 All `.css` file extensions will use css-modules unless it has `.global.css`.
 
@@ -163,7 +123,7 @@ See [electron-builder CLI Usage](https://github.com/electron-userland/electron-b
 
 #### Module Structure
 
-This boilerplate uses a [two package.json structure](https://github.com/electron-userland/electron-builder/wiki/Two-package.json-Structure).
+This project uses a [two package.json structure](https://github.com/electron-userland/electron-builder/wiki/Two-package.json-Structure).
 
 1. If the module is native to a platform or otherwise should be included with the published package (i.e. bcrypt, openbci), it should be listed under `dependencies` in `./app/package.json`.
 2. If a module is `import`ed by another module, include it in `dependencies` in `./package.json`.   See [this ESLint rule](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md).
@@ -180,35 +140,14 @@ If you want to have native-like User Interface (OS X El Capitan and Windows 10),
 
 see discusses in [#118](https://github.com/chentsulin/electron-react-boilerplate/issues/118) and [#108](https://github.com/chentsulin/electron-react-boilerplate/issues/108)
 
-## How to keep the boilerplate updated
-
-If your application is a fork from this repo, you can add this repo to another git remote:
-
-```sh
-git remote add upstream https://github.com/chentsulin/electron-react-boilerplate.git
-```
-
-Then, use git to merge some latest commits:
-
-```sh
-git pull upstream master
-```
-
-## Maintainers
-
-- [C. T. Lin](https://github.com/chentsulin)
-- [Jhen-Jie Hong](https://github.com/jhen0409)
-- [Amila Welihinda](https://github.com/amilajack)
-
-
 ## License
 MIT © [C. T. Lin](https://github.com/chentsulin)
 
-[npm-image]: https://img.shields.io/npm/v/electron-react-boilerplate.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/electron-react-boilerplate
-[travis-image]: https://travis-ci.org/chentsulin/electron-react-boilerplate.svg?branch=master
-[travis-url]: https://travis-ci.org/chentsulin/electron-react-boilerplate
-[appveyor-image]: https://ci.appveyor.com/api/projects/status/github/chentsulin/electron-react-boilerplate?svg=true
-[appveyor-url]: https://ci.appveyor.com/project/chentsulin/electron-react-boilerplate/branch/master
-[david_img]: https://img.shields.io/david/chentsulin/electron-react-boilerplate.svg
-[david_site]: https://david-dm.org/chentsulin/electron-react-boilerplate
+[npm-image]: https://badge.fury.io/js/breakout-tomato.svg
+[npm-url]: https://badge.fury.io/js/breakout-tomato
+[travis-image]: https://travis-ci.org/dreidev/breakout-tomato.svg?branch=master
+[travis-url]: https://travis-ci.org/dreidev/breakout-tomato
+[appveyor-image]: https://ci.appveyor.com/api/projects/status/61w6yatexhx4kk1e?svg=true
+[appveyor-url]: https://ci.appveyor.com/project/cmosh/breakout-tomato
+[david_img]: https://david-dm.org/cmosh/breakout-tomato.svg
+[david_site]: https://david-dm.org/cmosh/breakout-tomato
