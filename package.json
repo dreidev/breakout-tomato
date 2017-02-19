@@ -48,6 +48,7 @@
     "package": "npm run build && build --publish never",
     "package-win": "npm run build && build --win --x64",
     "package-linux": "npm run build && build --linux",
+    "package-mac": "npm run build && build --mac",
     "package-all": "npm run build && build -mwl",
     "cleanup": "mop -v"
   },
@@ -95,32 +96,7 @@
   },
   "bin": {
     "electron": "./node_modules/.bin/electron"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dreidev/breakout-tomato.git"
-  },
-  "author": {
-    "name": "C. T. Lin",
-    "email": "chentsulin@gmail.com",
-    "url": "https://github.com/chentsulin"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/dreidev/breakout-tomato/issues"
-  },
-  "keywords": [
-    "electron",
-    "tomato",
-    "react",
-    "react-router",
-    "flux",
-    "webpack",
-    "react-hot",
-    "timer",
-    "dreidev"
-  ],
-  "homepage": "https://github.com/dreidev/breakout-tomato",
+  }, 
   "devDependencies": {
     "asar": "^0.13.0",
     "babel-core": "^6.22.1",
