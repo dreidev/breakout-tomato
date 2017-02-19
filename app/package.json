@@ -4,11 +4,24 @@
   "version": "0.0.1",
   "description": "Tomato timer",
   "main": "./main.js",
-  "author": {
-    "name": "C. T. Lin",
-    "email": "chentsulin@gmail.com",
-    "url": "https://github.com/chentsulin"
+   "author": {
+    "name": "Clive Makamara",
+    "email": "clive@makamara.me",
+    "url": "http://github.com/cmosh",
+    "organization": "dreidev"
   },
+  "keywords": [
+    "dreidev",
+    "cmosh",
+    "tomato",
+    "electron",
+    "timer",
+    "breakout",
+    "breakout-timeline",
+    "breakout-tomato",
+    "timeline",
+    "time"
+  ],
   "license": "MIT",
   "dependencies": {
   }
