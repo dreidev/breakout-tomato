@@ -53,8 +53,19 @@ test_script:
 
 after_test:
   - npm run package-win
-  - npm run package-win32
 
 artifacts:
   # Archive the generated packages in the ci.appveyor.com build report.
   - path: release\*.exe
+
+deploy:
+  description: $(appveyor_build_version)
+  provider: GitHub
+  auth_token:
+    secure: vdh0PKOPwrsa2ZzN3ayrFOU8wwzOWLDF2+GFo7mGKd5Pyfk8YKMhBRFeUGnO8PJK # your encrypted token from GitHub
+  artifact: release\*.exe           # upload all NuGet packages to release assets
+  draft: false
+  prerelease: false
+  on:
+    # branch: master                 # release from master branch only
+    appveyor_repo_tag: true        # deploy on tag push only
