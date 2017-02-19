@@ -26,9 +26,6 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update                           ; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install graphviz                 ; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install gcc48                    ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install wine --without-x11       ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install gnu-tar graphicsmagick xz; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install rpm                      ; fi
 install:
 - export CXX="g++-4.8"
 - npm install -g npm@latest
