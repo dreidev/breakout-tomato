@@ -50,16 +50,18 @@ before_deploy:
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run package-linux32                           ; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE=$(ls release/mac/*.dmg)     ; fi
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export RELEASE_PKG_FILE=$(ls release/*64.deb)     ; fi
-- ls release/mac; exit 0
-- ls release
-- echo "deploying $RELEASE_PKG_FILE to GitHub releases"
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE_32=$(ls release/mac/*.zip)  ; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export RELEASE_PKG_FILE32=$(ls release/*86.deb)   ; fi
+- echo "deploying ${RELEASE_PKG_FILE} and ${RELEASE_PKG_FILE_32} to GitHub releases"
 after_success:
 deploy:
   provider: releases
   skip_cleanup: true
   api_key:
     secure: dzHUKEOd1LncBJ7lJbu/hYb1z76L8JFTSpYHiRspAwXpUBLNBMLLtpoBexZPCdyEry9ZCKygpupIiucoXeu8n+BoHIpnRByBTYj/4OC+55+eZlvaJSsjNVWo+wglpp7lSws0fz4DjYw/8WKR0WKHi6/mxPeIgET5rACns9Wi1UN+K0TCMabriTedMXK2WGQStDT4r9wwuG8RfQtzc5EloKOSyLtJS2KFedzF7jYosRCWpj0tF3tqC2i71m3hYHqzFxeoLj2sMNVipZPWQRbTRJ20HAcmRl76pKiWIIE41lnKm/xSTmnOnVfUGkVqvV700/4OspecEVdK0bX9I3Ahx6e6W7JOnO5BZS8m2q5OIaRt3ulAtW3mZ0B2mHpnL78QEGQGLPmiOU7laNLGb4KqjgZxXLhANYQ71UMXFlfZzLS6i+FGKqEmzazoQHdftqaUKYVG4mb840AVJanQs22+MnAr+Bt8VjaIA7rSk6pfA1sxamKi687Od7uKrPPOyzoZKpUrGBmtydrZSv/tg35ymh/Df1yoaMmBgzjZjofRQK0Gb+46RCxCBebgGYvOQ65UsN458E6E7dtWgsAvrVCvEhpfUrcQw9Umk//OyikSjThc/FKTf8sHWJ4siId0dfMRiLddPAbjIBsl0n6E7P3Sl33CadojmmC/0FiBAm/RskQ=
-  file: "${RELEASE_PKG_FILE}"
+  file: 
+  - "${RELEASE_PKG_FILE}"
+  - "${RELEASE_PKG_FILE_32}"
   on:
     repo: dreidev/breakout-tomato
     tags: true
