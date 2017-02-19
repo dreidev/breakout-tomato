@@ -1,7 +1,7 @@
 {
   "name": "breakout-tomato",
   "productName": "Tomato",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Electrified tomatos are not good for your health",
   "main": "main.js",
   "license": "MIT",
