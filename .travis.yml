@@ -34,6 +34,7 @@ script:
 - npm run package
 before_deploy:
 - npm run package-linux
+- ls release
 after_success:
 deploy:
   provider: releases
