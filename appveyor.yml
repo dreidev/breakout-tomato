@@ -50,3 +50,9 @@ test_script:
   - npm run build
   - npm run test-e2e
   - npm run package
+
+after_test:
+  - npm run package-win
+  - npm run package-win32
+
+artifact: release\/.*\.exe/  
