@@ -1,6 +1,6 @@
 {
   "name": "breakout-tomato",
-  "productName": "ElectronReact",
+  "productName": "Tomato",
   "version": "0.0.1",
   "description": "Electrified tomatos are not good for your health",
   "main": "main.js",
@@ -53,8 +53,8 @@
   },
   "browserslist": "electron 1.4",
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.develar.ElectronReact",
+    "productName": "Tomato",
+    "appId": "com.dreidev.breakout-tomato",
     "category": "public.app-category.tools",
     "dmg": {
       "contents": [
@@ -98,7 +98,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chentsulin/electron-react-boilerplate.git"
+    "url": "git+https://github.com/dreidev/breakout-tomato.git"
   },
   "author": {
     "name": "C. T. Lin",
@@ -107,18 +107,20 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chentsulin/electron-react-boilerplate/issues"
+    "url": "https://github.com/dreidev/breakout-tomato/issues"
   },
   "keywords": [
     "electron",
-    "boilerplate",
+    "tomato",
     "react",
     "react-router",
     "flux",
     "webpack",
-    "react-hot"
+    "react-hot",
+    "timer",
+    "dreidev"
   ],
-  "homepage": "https://github.com/chentsulin/electron-react-boilerplate#readme",
+  "homepage": "https://github.com/dreidev/breakout-tomato",
   "devDependencies": {
     "asar": "^0.13.0",
     "babel-core": "^6.22.1",

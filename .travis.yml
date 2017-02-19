@@ -1,56 +1,46 @@
 sudo: false
-
 language: node_js
-
 node_js:
-  - 7
-  - 6
-
+- 7
+- 6
 cache:
   directories:
-    - node_modules
-
-# Enable when https://github.com/yarnpkg/yarn/issues/1233 and
-# https://github.com/yarnpkg/yarn/issues/1059 are resolved and disable npm cache
-#
-# cache:
-#   directories:
-#   - $HOME/.yarn-cache
-
+  - node_modules
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
-      - icnsutils
-      - graphicsmagick
-      - xz-utils
-      - xorriso
-
+    - g++-4.8
+    - icnsutils
+    - graphicsmagick
+    - xz-utils
+    - xorriso
 install:
-  - export CXX="g++-4.8"
-  - npm install -g npm@latest
-  - npm install
-  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
-
-# Enable when https://github.com/yarnpkg/yarn/issues/1233 and
-# https://github.com/yarnpkg/yarn/issues/1059 are resolved and disable npm cache
-#
-# install:
-#   - export CXX="g++-4.8"
-#   - npm install -g yarnpkg
-#   - yarn
-#   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
-
+- export CXX="g++-4.8"
+- npm install -g npm@latest
+- npm install
+- /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile
+  --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start &
-  - sleep 3
-
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start &
+- sleep 3
 script:
-  - npm run lint
-  - npm run test
-  - npm run build
-  - npm run test-e2e
-  - npm run package
+- npm run lint
+- npm run test
+- npm run build
+- npm run test-e2e
+- npm run package
+before_deploy:
+- npm run package-all
+deploy:
+  provider: releases
+  api_key:
+    secure: dzHUKEOd1LncBJ7lJbu/hYb1z76L8JFTSpYHiRspAwXpUBLNBMLLtpoBexZPCdyEry9ZCKygpupIiucoXeu8n+BoHIpnRByBTYj/4OC+55+eZlvaJSsjNVWo+wglpp7lSws0fz4DjYw/8WKR0WKHi6/mxPeIgET5rACns9Wi1UN+K0TCMabriTedMXK2WGQStDT4r9wwuG8RfQtzc5EloKOSyLtJS2KFedzF7jYosRCWpj0tF3tqC2i71m3hYHqzFxeoLj2sMNVipZPWQRbTRJ20HAcmRl76pKiWIIE41lnKm/xSTmnOnVfUGkVqvV700/4OspecEVdK0bX9I3Ahx6e6W7JOnO5BZS8m2q5OIaRt3ulAtW3mZ0B2mHpnL78QEGQGLPmiOU7laNLGb4KqjgZxXLhANYQ71UMXFlfZzLS6i+FGKqEmzazoQHdftqaUKYVG4mb840AVJanQs22+MnAr+Bt8VjaIA7rSk6pfA1sxamKi687Od7uKrPPOyzoZKpUrGBmtydrZSv/tg35ymh/Df1yoaMmBgzjZjofRQK0Gb+46RCxCBebgGYvOQ65UsN458E6E7dtWgsAvrVCvEhpfUrcQw9Umk//OyikSjThc/FKTf8sHWJ4siId0dfMRiLddPAbjIBsl0n6E7P3Sl33CadojmmC/0FiBAm/RskQ=
+  file: 
+  - release/tomato.exe
+  - release/tomato.app
+  - release/tomato.bin
+  on:
+    repo: dreidev/breakout-tomato
