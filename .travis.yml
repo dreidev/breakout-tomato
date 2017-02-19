@@ -51,7 +51,7 @@ before_deploy:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE=$(ls release/mac/*.dmg)     ; fi
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export RELEASE_PKG_FILE=$(ls release/*64.deb)     ; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE_32=$(ls release/mac/*.zip)  ; fi
-- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export RELEASE_PKG_FILE32=$(ls release/*86.deb)   ; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export RELEASE_PKG_FILE_32=$(ls release/*86.deb)   ; fi
 - echo "deploying ${RELEASE_PKG_FILE} and ${RELEASE_PKG_FILE_32} to GitHub releases"
 after_success:
 deploy:
