@@ -55,4 +55,4 @@ after_test:
   - npm run package-win
   - npm run package-win32
 
-artifact: release\/.*\.exe/  
+  artifact: /.*\.exe/            # upload all NuGet packages to release assets
