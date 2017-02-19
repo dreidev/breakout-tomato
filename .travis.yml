@@ -21,7 +21,9 @@ addons:
     - graphicsmagick
     - xz-utils
     - xorriso
+    - xvfb
 before_install:
+  - echo $TRAVIS_OS_NAME
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew tap homebrew/versions            ; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update                           ; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install graphviz                 ; fi
@@ -30,10 +32,9 @@ install:
 - export CXX="g++-4.8"
 - npm install -g npm@latest
 - npm install
-- if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16 ; fi
 before_script:
 - export DISPLAY=:99.0
-- if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then  sh -e /etc/init.d/xvfb start & ; fi 
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 & ; fi
 - sleep 3
 script:
 - npm run lint
