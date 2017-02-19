@@ -46,10 +46,12 @@ script:
 - npm run test-e2e
 - npm run package
 before_deploy:
-- npm run package-linux
-- npm run package
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then npm run package-mac                               ; fi
+- if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then npm run package-linux                             ; fi
+- if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then npm run package-linux32                           ; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE=$(ls release/*.AppImage)  ; fi
+- if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then export RELEASE_PKG_FILE=$(ls release/*64.deb); fi
 - ls release
-- export RELEASE_PKG_FILE=$(ls release/*.deb)
 - echo "deploying $RELEASE_PKG_FILE to GitHub releases"
 after_success:
 deploy:
